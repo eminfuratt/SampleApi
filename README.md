@@ -116,19 +116,7 @@ Swagger UI üzerinden:
 canlı olarak test edilebilir.
 
 
----
 
-## 📌 Örnek Endpoint’ler
-
-POST /api/auth/login
-GET /api/orders/my-orders
-POST /api/orders
-POST /api/orders/admin
-PUT /api/orders/my-order/{id}
-DELETE /api/orders/{id}
-
-
----
 
 ## 🧠 Mimari Kararlar
 
