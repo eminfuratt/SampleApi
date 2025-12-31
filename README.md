@@ -1,44 +1,38 @@
 # SampleApi – ASP.NET Core Web API
 
-Bu proje, **ASP.NET Core Web API (.NET 8)** kullanılarak geliştirilmiş;
-**JWT tabanlı kimlik doğrulama, Role-Based Authorization,
-RabbitMQ ile Event-Driven Architecture, Docker, Serilog Logging**
-gibi modern backend yaklaşımlarını içeren örnek bir backend uygulamasıdır.
+SampleApi, **ASP.NET Core Web API (.NET 8)** kullanılarak geliştirilmiş;  
+**JWT tabanlı kimlik doğrulama**, **Role-Based Authorization**,  
+**RabbitMQ ile Event-Driven Architecture**, **Docker** ve  
+**Serilog Logging** gibi modern backend yaklaşımlarını içeren örnek bir backend uygulamasıdır.
 
-Proje, gerçek bir üretim ortamına uygun olacak şekilde katmanlı mimari,
-clean code prensipleri ve sürdürülebilir yazılım tasarımı dikkate alınarak geliştirilmiştir.
+Proje, gerçek bir üretim ortamı göz önünde bulundurularak  
+**katmanlı mimari**, **clean code prensipleri** ve  
+**sürdürülebilir yazılım tasarımı** dikkate alınarak geliştirilmiştir.
 
 ---
 ## 🎯 Proje Amacı
 
-Güvenli bir kullanıcı yönetimi oluşturmak
-
-Ürün ve sipariş işlemlerini **rol bazlı** olarak kontrol etmek
-
-Sipariş sonrası işlemleri **event-driven** mimari ile ayırmak
-
-E-posta gönderimini arka planda **asenkron olarak** gerçekleştirmek
-
-Dosya (JSON / CSV) üzerinden toplu sipariş yüklemek
-
-Loglama sistemi ile tüm işlemleri kayıt altına almak
+- Güvenli bir kullanıcı yönetimi oluşturmak  
+- Ürün ve sipariş işlemlerini **rol bazlı** olarak kontrol etmek  
+- Sipariş sonrası işlemleri **event-driven mimari** ile ayırmak  
+- E-posta gönderimini arka planda **asenkron** olarak gerçekleştirmek  
+- Dosya (JSON / CSV) üzerinden **toplu sipariş yüklemek**  
+- Loglama sistemi ile tüm işlemleri kayıt altına almak  
 
 ---
 
 ## 🚀 Kullanılan Teknolojiler
 
-- ASP.NET Core Web API
+- ASP.NET Core Web API (.NET 8)
 - Entity Framework Core
 - JWT Authentication
 - Role-Based Authorization (RBAC)
 - MySQL
 - RabbitMQ
 - Docker
-- SMTP(Gmail)
+- SMTP (Gmail)
 - Swagger (OpenAPI)
-- Repository Pattern
-- Service Layer
-- DTO Pattern
+- Serilog
 - Dependency Injection
 
 ---
@@ -63,7 +57,11 @@ Controllers
 └── Models (Entities)
     └── Veritabanı modelleri
 ```
+Bu yapı sayesinde:
 
+- Katmanlar birbirinden bağımsız çalışır
+- Kod okunabilirliği ve sürdürülebilirlik artar
+- Test edilebilirlik sağlanır
 
 ---
 
@@ -120,11 +118,26 @@ DTO’lar, API ile client arasındaki veri sözleşmesini belirler.
 - `UpdateOrderDto` → Sipariş güncelleme
 
 Bu sayede:
-- User, `UserId` gönderemez
+- Client tarafından `UserId` gibi kritik alanlar gönderilemez
 - Rol ihlalleri engellenir
 - Güvenlik açıkları önlenir
 
 ---
+
+## 📬 Event-Driven Architecture (RabbitMQ)
+Sipariş oluşturma işlemi ile e-posta gönderme işlemi birbirinden ayrılmıştır.
+
+**Akış**
+1. Sipariş veritabanına kaydedilir
+2. Sipariş bilgileri RabbitMQ kuyruğuna event olarak gönderilir
+3. Arka planda çalışan consumer servisi mesajı yakalar
+4. E-posta işlemi asenkron olarak gerçekleştirilir
+
+Bu sayede:
+
+- API ana akışı bloke edilmez
+- Kullanıcı daha hızlı cevap alır
+- Sistem ölçeklenebilir hale gelir
 
 ## 🧪 Swagger Desteği
 
@@ -133,9 +146,6 @@ Swagger UI üzerinden:
 - JWT token alma
 - Token ile yetkili endpoint çağrıları
 canlı olarak test edilebilir.
-
-
-
 
 ## 🧠 Mimari Kararlar
 
