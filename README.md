@@ -1,12 +1,27 @@
 # SampleApi – ASP.NET Core Web API
 
-Bu proje, ASP.NET Core Web API (.NET 8) kullanılarak geliştirilmiş;
-JWT tabanlı kimlik doğrulama, Role-Based Authorization,
-RabbitMQ ile Event-Driven Architecture, Docker, Serilog Logging
+Bu proje, **ASP.NET Core Web API (.NET 8)** kullanılarak geliştirilmiş;
+**JWT tabanlı kimlik doğrulama, Role-Based Authorization,
+RabbitMQ ile Event-Driven Architecture, Docker, Serilog Logging**
 gibi modern backend yaklaşımlarını içeren örnek bir backend uygulamasıdır.
 
 Proje, gerçek bir üretim ortamına uygun olacak şekilde katmanlı mimari,
 clean code prensipleri ve sürdürülebilir yazılım tasarımı dikkate alınarak geliştirilmiştir.
+
+---
+## 🎯 Proje Amacı
+
+Güvenli bir kullanıcı yönetimi oluşturmak
+
+Ürün ve sipariş işlemlerini **rol bazlı** olarak kontrol etmek
+
+Sipariş sonrası işlemleri **event-driven** mimari ile ayırmak
+
+E-posta gönderimini arka planda **asenkron olarak** gerçekleştirmek
+
+Dosya (JSON / CSV) üzerinden toplu sipariş yüklemek
+
+Loglama sistemi ile tüm işlemleri kayıt altına almak
 
 ---
 
@@ -17,6 +32,9 @@ clean code prensipleri ve sürdürülebilir yazılım tasarımı dikkate alınar
 - JWT Authentication
 - Role-Based Authorization (RBAC)
 - MySQL
+- RabbitMQ
+- Docker
+- SMTP(Gmail)
 - Swagger (OpenAPI)
 - Repository Pattern
 - Service Layer
