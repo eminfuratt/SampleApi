@@ -29,6 +29,7 @@ Proje, gerçek bir üretim ortamına uygun olacak şekilde **katmanlı mimari** 
 Proje **katmanlı mimari** ile geliştirilmiştir:
 
 
+```text
 Controllers
 │
 ├── Services
