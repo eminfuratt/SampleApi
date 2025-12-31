@@ -27,6 +27,7 @@ Proje, gerçek bir üretim ortamına uygun olacak şekilde **katmanlı mimari** 
 ## 🧱 Mimari Yapı
 
 Proje **katmanlı mimari** ile geliştirilmiştir:
+```text
 Controllers
 │
 ├── Services
@@ -40,6 +41,7 @@ Controllers
 │
 └── Models (Entities)
     └── Veritabanı modelleri
+
 
 
 
