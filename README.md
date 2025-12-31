@@ -30,16 +30,17 @@ Proje **katmanlı mimari** ile geliştirilmiştir:
 Controllers
 │
 ├── Services
-│ └── İş kuralları ve yetki kontrolleri
+│   └── İş kuralları ve yetki kontrolleri
 │
 ├── Repositories
-│ └── Veri tabanı erişimi
+│   └── Veri tabanı erişimi
 │
 ├── DTOs
-│ └── API sözleşmesi ve veri transferi
+│   └── API sözleşmesi ve veri transferi
 │
 └── Models (Entities)
-└── Veritabanı modelleri
+    └── Veritabanı modelleri
+
 
 
 ---
