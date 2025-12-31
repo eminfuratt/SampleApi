@@ -90,6 +90,9 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<RabbitMqPublisherService>();
 builder.Services.AddHostedService<EmailConsumerService>();
 builder.Services.AddSingleton<EmailService>();
+builder.Services.Configure<EmailSettings>(
+    builder.Configuration.GetSection("EmailSettings")
+);
 
 
 

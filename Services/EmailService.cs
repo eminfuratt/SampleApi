@@ -1,35 +1,44 @@
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 
 namespace SampleApi.Services
 {
     public class EmailService
     {
+        private readonly EmailSettings _settings;
+
+        public EmailService(IOptions<EmailSettings> settings)
+        {
+            _settings = settings.Value;
+        }
+
         public async Task SendOrderEmailAsync(string toEmail, int orderId, decimal totalPrice)
         {
-            // Sipariş e-postası gönderme metodu
+            if (string.IsNullOrEmpty(_settings.Password))
+            throw new Exception("Email password is not configured.");
+
             var mail = new MailMessage
             {
-                From = new MailAddress("furatemin24@gmail.com"), 
+                From = new MailAddress(_settings.From),
                 Subject = "Siparişiniz Alındı",
-                Body = $"Merhaba,\n\n" +
-                       $"Siparişiniz başarıyla alınmıştır.\n\n" +
-                       $"Sipariş No: {orderId}\n" +
-                       $"Toplam Tutar: {totalPrice} ₺\n\n" +
-                       $"İyi günler dileriz.",
+                Body =
+                    $"Merhaba,\n\n" +
+                    $"Siparişiniz başarıyla alınmıştır.\n\n" +
+                    $"Sipariş No: {orderId}\n" +
+                    $"Toplam Tutar: {totalPrice} ₺\n\n" +
+                    $"İyi günler dileriz.",
                 IsBodyHtml = false
             };
 
             mail.To.Add(toEmail);
 
-            //SMTP client oluştur (Gmail üzerinden)
-            using var smtp = new SmtpClient("smtp.gmail.com", 587)
+            using var smtp = new SmtpClient(_settings.Host, _settings.Port)
             {
                 EnableSsl = true,
                 Credentials = new NetworkCredential(
-                    "furatemin24@gmail.com",
-                    "iblkufcatsclkala"
+                    _settings.From,
+                    _settings.Password
                 )
             };
 
