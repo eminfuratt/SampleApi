@@ -41,6 +41,8 @@ Controllers
 │
 └── Models (Entities)
     └── Veritabanı modelleri
+```text
+
 
 
 
