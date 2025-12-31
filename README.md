@@ -1,11 +1,12 @@
 # SampleApi – ASP.NET Core Web API
 
-Bu proje, ASP.NET Core Web API kullanılarak geliştirilmiş, **JWT tabanlı kimlik doğrulama**,  
-**Role-Based Access Control (RBAC)**, **DTO Pattern**, **Repository & Service Layer mimarisi**
-üzerine kurulmuş örnek bir backend uygulamasıdır.
+Bu proje, ASP.NET Core Web API (.NET 8) kullanılarak geliştirilmiş;
+JWT tabanlı kimlik doğrulama, Role-Based Authorization,
+RabbitMQ ile Event-Driven Architecture, Docker, Serilog Logging
+gibi modern backend yaklaşımlarını içeren örnek bir backend uygulamasıdır.
 
-Proje, gerçek bir üretim ortamına uygun olacak şekilde **katmanlı mimari** ve
-**clean code prensipleri** dikkate alınarak tasarlanmıştır.
+Proje, gerçek bir üretim ortamına uygun olacak şekilde katmanlı mimari,
+clean code prensipleri ve sürdürülebilir yazılım tasarımı dikkate alınarak geliştirilmiştir.
 
 ---
 
